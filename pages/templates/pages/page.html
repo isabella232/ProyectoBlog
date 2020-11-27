@@ -1,0 +1,14 @@
+{% extends 'layouts/layout.html' %}
+
+{% block title %} {{page.title}} {% endblock %}
+
+{% block content %}
+    <h1 class="title">{{page.title}}</h1>
+
+    <span class="date">{{page.created_at}}</span>
+
+    <p class="content">
+        {{page.content|safe}} <!--Lo que haya en page.content lo interpreta como html y no como texto plano para el editor de texto enrriquesido-->
+    </p>
+
+{% endblock %}

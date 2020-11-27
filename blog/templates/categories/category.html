@@ -1,0 +1,11 @@
+{% extends 'layouts/layout.html' %}
+
+{% block title %} {{category.name}} {% endblock %}
+
+{% block content %}
+    <h1 class="title">{{category.name}}</h1>
+    <p>{{ category.description }}</p>
+
+    {% include 'articles/articles.html' with articles=category.articles.all %} <!--Tenemos relacionado articulo y categorias, al hacer esto lo que hago es decirle que articles es igual a la relación que tengo en categoria con articulos y muestra todos los articulos que apuntan o tiene una relación con la categoria en concreto-->
+
+{% endblock %}
