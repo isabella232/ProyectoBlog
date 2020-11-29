@@ -12,7 +12,7 @@
     
     
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/styless.css'%}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css'%}"/>
 </head>
 
 <body>
@@ -30,6 +30,7 @@
             <li>
                 <a href="{% url 'index' %}">Inicio</a> <!--aquí estamos poniendo como url el nombre de la url asignado en el archivo urls.py-->
             </li>
+            {% if user.email %}
             <li>
                 <a href="{% url 'list_articles' %}">Categorías</a> <!--aquí estamos poniendo como url el nombre de la url asignado en el archivo urls.py-->
                 <ul>
@@ -45,6 +46,17 @@
                 <a href="{% url 'page' page.2 %}">{{page.1}}</a> 
             </li>
             {% endfor %}
+            <li>
+                <a href="{% url 'logout' %}">Cerrar sesion</a>
+            </li>
+            {% else %}
+                <li>
+                    <a href="{% url 'register' %}">Registro</a>
+                </li>
+                <li>
+                    <a href="{% url 'login' %}">Login</a> <!--aquí estamos poniendo como url el nombre de la url asignado en el archivo urls.py-->
+                </li>
+            {% endif %}
         </ul>
     </nav>
 
